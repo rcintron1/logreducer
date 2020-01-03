@@ -6,7 +6,7 @@
  */
 
 const LogReader= require('./logreader')
-
+var pjson = require('./package.json');
 
 // CLI options
 const yargs = require('yargs');
@@ -14,7 +14,7 @@ const yargs = require('yargs');
 const argv = yargs
   .usage('This is Logreducer\n\nUsage: $0 [options]')
   .help('help').alias('help', 'h')
-  .version('version', '1.0.1').alias('version', 'V')
+  .version('version', pjson.version).alias('version', 'V')
   .options({
     file: {
       alias: 'f',

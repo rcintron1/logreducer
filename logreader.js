@@ -1,4 +1,5 @@
-const Printer = require('./printer')
+const printer = new (require('./printer'))
+
 const fs = require("fs"),
     readline = require('readline');
 
@@ -16,9 +17,17 @@ module.exports = class LogReader{
 }
 
 function checkFile(){
-    if (!(fs.existsSync(this.config.logfilename))) throw "missing"
+    if (!(fs.existsSync(this.config.logfilename))) throw "file is missing or you don't have access"
 }
 
 async function readLines(){
-    console.log("inside readlines")
+    printer.write("inside readlines")
+    const readInterface = readline.createInterface({
+        input: fs.createReadStream(this.config.logfilename),
+        output: process.stdout,
+        console: false
+    });
+    readInterface.on('line', function(line) {
+        console.log(line);
+    });
 }
