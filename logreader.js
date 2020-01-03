@@ -1,10 +1,24 @@
-class LogReader{
+const Printer = require('./printer')
+const fs = require("fs"),
+    readline = require('readline');
+
+module.exports = class LogReader{
     constructor(config) {
+        // Check for all the necessary properties
+        if ( typeof(config)!=="object") throw "missing options"
+        if (!("logfilename" in config)) throw "missing filename"
         this.config = config
     }
-    get checkLogLocation(){
-        return "location" in this.config? this.config.location:"NoFile"
+    readFile(){
+        checkFile.bind(this)()
+        readLines.bind(this)()
     }
 }
 
-module.exports = {LogReader}
+function checkFile(){
+    if (!(fs.existsSync(this.config.logfilename))) throw "missing"
+}
+
+async function readLines(){
+    console.log("inside readlines")
+}
