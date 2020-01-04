@@ -8,11 +8,23 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "versionUp": ". ./scripts/version.sh"
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch"
   },
   "author": "",
   "license": "ISC",
+  "keywords": [
+    "cli",
+    "shell",
+    "command-line",
+    "terminal"
+  ],
   "dependencies": {
     "yargs": "^15.1.0"
+  },
+  "repository": {
+    "type":"git",
+    "url":"."
   }
 }
