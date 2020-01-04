@@ -42,7 +42,6 @@ if (argv.file){
     try{
         const lr = new LogReader({logfilename:argv.file});
         lr.readFile()
-        console.log("after readFile")
     }catch(e){
       yargs.usage(`Error on logreducer:\n${e}\n\nUsage: $0 [options]`)
       yargs.showHelp()

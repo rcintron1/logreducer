@@ -46,6 +46,16 @@
             ],
             "program": "${workspaceFolder}/index.js",
             "args": ["-f","nonexistingfile.out"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Testing Docker Local File",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/index.js",
+            "args": ["-f","/var/log/docker"]
         }
     ]
 }
