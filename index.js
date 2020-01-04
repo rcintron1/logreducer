@@ -12,7 +12,7 @@ var pjson = require('./package.json');
 const yargs = require('yargs');
 
 const argv = yargs
-  .usage('This is Logreducer\n\nUsage: $0 [options]')
+  // .usage('This is Logreducer\n\nUsage: $0 [options]')
   .help('help').alias('help', 'h')
   .version('version', pjson.version).alias('version', 'V')
   .options({
@@ -42,8 +42,10 @@ if (argv.file){
     try{
         const lr = new LogReader({logfilename:argv.file});
         lr.readFile()
+        console.log("after readFile")
     }catch(e){
-        yargs.showHelp()
+      yargs.usage(`Error on logreducer:\n${e}\n\nUsage: $0 [options]`)
+      yargs.showHelp()
     }
 
 }

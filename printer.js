@@ -20,6 +20,8 @@ module.exports = class Printer{
 function writeToFile(){
     console.log("writeToFile", this.data)
 }
-function writeToScreen(data){
-    console.log("writeToScreen", this.data)
+function writeToScreen(){
+    // console.log(this.data)
+    // this.data.forEach(console.log)
+    Array.isArray(this.data)?this.data.forEach(console.log):console.log(this.data)
 }
