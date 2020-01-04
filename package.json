@@ -1,6 +1,6 @@
 {
   "name": "logreducer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Reduces Log file directory by running a mapreduce on the logs. It will record similar log lines except for date, and count them, resulting in a list of unique log entries and count per period of time stated.",
   "main": "index.js",
   "bin": {
@@ -24,7 +24,7 @@
     "yargs": "^15.1.0"
   },
   "repository": {
-    "type":"git",
-    "url":"."
+    "type": "git",
+    "url": "."
   }
 }
