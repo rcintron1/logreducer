@@ -26,5 +26,8 @@
   "repository": {
     "type": "git",
     "url": "."
+  },
+  "devDependencies": {
+    "mocha": "^7.0.0"
   }
 }

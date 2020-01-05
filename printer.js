@@ -14,7 +14,9 @@ module.exports = class Printer{
             writeToScreen.bind(this)();
         }
     }
-    
+    warn(msg){
+        
+    }
 }
 
 function writeToFile(){

@@ -7,7 +7,7 @@ module.exports = class LogReader{
     constructor(config) {
         // Check for all the necessary properties
         if ( typeof(config)!=="object") throw "missing options"
-        if (!("logfilename" in config)) throw "missing filename"
+        if (!("file" in config)) throw "missing filename"
         this.config = config
     }
     async readFile(){
@@ -18,14 +18,14 @@ module.exports = class LogReader{
 }
 
 function checkFile(){
-    if (!(fs.existsSync(this.config.logfilename))) throw "file is missing or you don't have access"
+    if (!(fs.existsSync(this.config.file))) throw "file is missing or you don't have access"
 }
 
 function readLines(){
     return new Promise((res,rej) =>{
         printer.write("inside readlines")
         const readInterface = readline.createInterface({
-            input: fs.createReadStream(this.config.logfilename),
+            input: fs.createReadStream(this.config.file),
             // output: process.stdout,
             console: false
         });

@@ -22,6 +22,12 @@ const argv = yargs
       requiresArg: true,
       required: true
     },
+    regex: {
+      alias: 'r',
+      description: "regex to parse through the logs",
+      requiresArg: true,
+      required: false
+    },
     output: {
       alias: 'o',
       description: "<filename> output file name",
@@ -40,7 +46,7 @@ const argv = yargs
 
 if (argv.file){
     try{
-        const lr = new LogReader({logfilename:argv.file});
+        const lr = new LogReader(argv);
         lr.readFile()
     }catch(e){
       yargs.usage(`Error on logreducer:\n${e}\n\nUsage: $0 [options]`)
