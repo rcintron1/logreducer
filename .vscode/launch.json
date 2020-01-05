@@ -56,6 +56,16 @@
             ],
             "program": "${workspaceFolder}/index.js",
             "args": ["-f","/var/log/docker"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Test File",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "mocha",
+            "args": ["${workspaceFolder}/test/test_prompt.js"]
         }
     ]
 }
