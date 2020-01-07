@@ -35,7 +35,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/index.js",
-            "args": ["-f","kafkaServer.out"]
+            "args": ["-f","./test/kafkaServer.out"]
         },
         {
             "type": "node",

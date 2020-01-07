@@ -1,4 +1,4 @@
-const printer = new (require('./printer'))
+// const printer = new (require('./printer'))
 const reducedLog = []
 const fs = require("fs")
 const readline = require('readline');
@@ -12,7 +12,7 @@ module.exports = class LogReader{
     }
     async readFile(){
         checkFile.bind(this)()
-        printer.write(await readLines.bind(this)())
+        return await readLines.bind(this)()
         
     }
 }
@@ -23,10 +23,8 @@ function checkFile(){
 
 function readLines(){
     return new Promise((res,rej) =>{
-        printer.write("inside readlines")
         const readInterface = readline.createInterface({
             input: fs.createReadStream(this.config.file),
-            // output: process.stdout,
             console: false
         });
         readInterface.on('line', function(line) {

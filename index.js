@@ -6,6 +6,7 @@
  */
 
 const LogReader= require('./logreader')
+const Printer = require('./printer')
 var pjson = require('./package.json');
 
 // CLI options
@@ -47,7 +48,10 @@ const argv = yargs
 if (argv.file){
     try{
         const lr = new LogReader(argv);
-        lr.readFile()
+        const printer = new Printer(argv);
+        lr.readFile().then(data=>{
+          printer.write(data)
+        })
     }catch(e){
       yargs.usage(`Error on logreducer:\n${e}\n\nUsage: $0 [options]`)
       yargs.showHelp()
