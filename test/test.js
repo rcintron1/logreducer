@@ -8,13 +8,12 @@ noOptionExpectedResult='Options:\n  --help, -h     Show help                    
 describe('Test CLI Prompt', function() {
   it('should return instructions when no option is included', function(done) {
     exec('node index.js', (error, stdout, stderr) => {
-        assert.equal(`${stderr}`,noOptionExpectedResult);
+        expect(`${stderr}`).to.equal(noOptionExpectedResult);
         done()
     });
   });
   it('should return count value of last record', function(done) {
     exec('node index.js -f ./test/kafkaServer.out', (error, stdout, stderr) => {
-        // console.log(`${stdout}`)
         expect(`${stdout}`).to.include(`count: 13`);
         done()
     });
