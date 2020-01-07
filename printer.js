@@ -6,7 +6,9 @@
 module.exports = class Printer{
 
     constructor(config){
-        config.logging==null?this.config={logging:"default"}:this.config=config
+        this.config=config
+        this.config.logging= this.config.logging || "default"
+        this.config.count= this.config.count || 1
     }
     write(data){
         if (this.config.logging==="default"){
@@ -26,7 +28,9 @@ function writeToFile(){
     console.log("writeToFile", this.data)
 }
 function writeToScreen(){
-    Array.isArray(this.data)?this.data.forEach(console.log):console.log(this.data)
+    Array.isArray(this.data)?this.data
+        .forEach((row)=>row.count>=this.config.count && console.log(row))
+        :console.log(this.data)
 }
 function returnData(){
     return this.data

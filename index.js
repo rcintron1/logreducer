@@ -34,6 +34,12 @@ const argv = yargs
       description: "<filename> output file name",
       requiresArg: true,
       required: false
+    },
+    count: {
+      alias: 'c',
+      description: "Displays records who's count is equal or greater than the value provided",
+      requiresArg: true
+
     }
   })
   .argv;
