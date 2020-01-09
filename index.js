@@ -15,7 +15,7 @@ const yargs = require('yargs');
 const argv = yargs
   // .usage('This is Logreducer\n\nUsage: $0 [options]')
   .help('help').alias('help', 'h')
-  .version('version', pjson.version).alias('version', 'V')
+  .version('version', pjson.version).alias('version', 'v')
   .options({
     file: {
       alias: 'f',

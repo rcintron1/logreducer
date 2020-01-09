@@ -47,3 +47,7 @@ function pushToArray(arr, obj) {
         arr[index].count = arr[index].count+=1
     }
 }
+
+function detectLog(line){
+    return /(\[.*?\]) ([A-Z]*) (.*)/.test(line)?true:false
+}
